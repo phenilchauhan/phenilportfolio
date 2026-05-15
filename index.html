@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Phenil Chauhan — Full Stack & AppSec Engineer</title>
+  <title>Phenil Chauhan — Full Stack, Prompt Engineer & AppSec</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
   <style>
@@ -99,12 +99,29 @@
     .skill-list li::before { content: '# '; color: var(--accent); }
     .skill-list li.hi { color: var(--text); }
     .skill-list li.hi::before { color: var(--green); }
-    .certs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(285px, 1fr)); gap: 1rem; }
+
+    /* ── Certifications ── */
+    .cert-section-group { margin-bottom: 2.5rem; }
+    .cert-group-label {
+      font-family: 'DM Mono', monospace; font-size: 0.68rem; color: var(--accent3);
+      text-transform: uppercase; letter-spacing: 0.14em;
+      margin-bottom: 0.9rem; padding-bottom: 0.4rem;
+      border-bottom: 1px solid rgba(245,158,11,0.2);
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .cert-group-label::before { content:''; display:inline-block; width:8px; height:8px; background:var(--accent3); border-radius:50%; }
+    .certs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(285px, 1fr)); gap: 0.85rem; }
     .cert-card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1.1rem 1.4rem; display: flex; align-items: flex-start; gap: 0.9rem; transition: border-color 0.2s; }
     .cert-card:hover { border-color: rgba(0,229,255,0.3); }
+    .cert-card.featured { border-color: rgba(0,229,255,0.3); background: linear-gradient(135deg, var(--card) 0%, rgba(0,229,255,0.04) 100%); }
     .cert-icon { width: 34px; height: 34px; flex-shrink: 0; background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.2); border-radius: 6px; display: grid; place-items: center; font-size: 0.95rem; }
+    .cert-icon.ai { background: rgba(124,58,237,0.12); border-color: rgba(124,58,237,0.25); }
+    .cert-icon.cloud { background: rgba(0,229,255,0.1); border-color: rgba(0,229,255,0.2); }
+    .cert-icon.dev { background: rgba(245,158,11,0.1); border-color: rgba(245,158,11,0.2); }
     .cert-name { font-size: 0.83rem; color: var(--text); font-weight: 500; }
-    .cert-issuer { font-size: 0.71rem; color: var(--muted); font-family: 'DM Mono', monospace; }
+    .cert-issuer { font-size: 0.71rem; color: var(--muted); font-family: 'DM Mono', monospace; margin-top: 0.15rem; }
+    .cert-id { font-size: 0.67rem; color: rgba(0,229,255,0.5); font-family: 'DM Mono', monospace; margin-top: 0.1rem; }
+
     footer { border-top: 1px solid var(--border); padding: 3rem 4rem; display: flex; justify-content: space-between; align-items: center; color: var(--muted); font-size: 0.82rem; }
     .footer-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.1rem; color: var(--accent); }
     .footer-links { display: flex; gap: 1.5rem; }
@@ -114,6 +131,7 @@
       nav { padding: 1rem 1.5rem; } .nav-links { display: none; }
       section { padding: 4rem 1.5rem; } #hero { padding: 6rem 1.5rem 4rem; }
       .about-grid { grid-template-columns: 1fr; } .hero-stats { gap: 1.5rem; }
+      .skills-grid { grid-template-columns: 1fr; }
       footer { flex-direction: column; gap: 1rem; padding: 2rem 1.5rem; text-align: center; }
     }
   </style>
@@ -134,12 +152,13 @@
   <div class="hero-grid-bg"></div>
   <div class="hero-glow"></div>
   <div class="hero-inner">
+    <div class="hero-badge">Available for new opportunities</div>
     <h1><span class="dim">Hi, I'm</span><br><span class="accent">Phenil</span> Chauhan</h1>
     <p class="hero-sub">
-      <strong>Full Stack &amp; Application Security Engineer</strong> with 6+ years building scalable enterprise systems.
+      <strong>Full Stack · Prompt Engineer · Application Security Engineer</strong> with 7+ years building scalable enterprise systems.
       Expert in <strong>Node.js, React.js, Vue.js &amp; Laravel</strong> — deeply focused on
-      <strong>OWASP Top 10, Penetration Testing &amp; AI-driven security automation</strong>.
-      Proven: <strong>35% scalability boost</strong> &amp; <strong>100% critical vulnerability elimination</strong> in production.
+      <strong>OWASP Top 10, Penetration Testing, LLM Workflow Design &amp; AI-driven security automation</strong>.
+      Proven: <strong>35% scalability boost</strong>, <strong>100% critical vulnerability elimination</strong> &amp; <strong>60% reduction in manual processing time</strong>.
     </p>
     <div class="hero-buttons">
       <a href="#experience" class="btn-primary">View Experience ↓</a>
@@ -147,10 +166,10 @@
       <a href="https://www.linkedin.com/in/phenil-chauhan-3b400617b/" target="_blank" class="btn-ghost">LinkedIn ↗</a>
     </div>
     <div class="hero-stats">
-      <div><div class="stat-num">6+</div><div class="stat-label">Years Experience</div></div>
+      <div><div class="stat-num">7+</div><div class="stat-label">Years Experience</div></div>
       <div><div class="stat-num">10+</div><div class="stat-label">Enterprise Clients</div></div>
-      <div><div class="stat-num">8</div><div class="stat-label">Companies Served</div></div>
-      <div><div class="stat-num">17+</div><div class="stat-label">Certifications</div></div>
+      <div><div class="stat-num">3+</div><div class="stat-label">Years Prompt Eng.</div></div>
+      <div><div class="stat-num">40+</div><div class="stat-label">Certifications</div></div>
     </div>
   </div>
 </section>
@@ -162,14 +181,14 @@
   <h2 class="section-title">Security-First Developer<br>Based in Mumbai 🇮🇳</h2>
   <div class="about-grid">
     <div class="about-text">
-      <p>I'm a <strong>Cybersecurity-focused Full Stack Developer</strong> with 6+ years designing secure, high-performance web applications for enterprises across aviation, healthcare, retail analytics, food-tech, and real estate.</p>
+      <p>I'm a <strong>Cybersecurity-focused Full Stack Developer and Prompt Engineer</strong> with 7+ years designing secure, high-performance web applications for enterprises across aviation, healthcare, retail analytics, food-tech, and real estate.</p>
       <p>On the <strong>development side</strong>: Node.js, React.js, Vue.js, Laravel — scalable APIs, real-time dashboards, admin systems. On the <strong>security side</strong>: Burp Suite, OWASP ZAP, Nmap, SQLMap — identifying and eliminating vulnerabilities before production.</p>
-      <p>Currently deepening expertise in <strong>Web App Penetration Testing, Vulnerability Assessment, Cloud Security</strong>, and <strong>AI-assisted security automation</strong> (PentestGPT, GitHub Copilot, Vertex AI, Microsoft Security Copilot).</p>
-      <p>Seeking roles in <strong>Application Security, Product Security, or Senior Full Stack</strong> where both dev and security skills deliver maximum impact.</p>
+      <p>As a <strong>Prompt Engineer</strong>: 3+ years designing LLM workflows, RAG pipelines, and AI-powered security tools using OpenAI GPT-4, Anthropic Claude API, and Google Gemini — achieving 40%+ improvement in AI output accuracy and 60% reduction in manual processing time for enterprise clients.</p>
+      <p>Seeking roles in <strong>Application Security, Prompt Engineering, Product Security, or Senior Full Stack</strong> where dev, AI, and security skills deliver maximum impact.</p>
       <div class="about-tags">
         <span class="tag">Mumbai, India</span><span class="tag">MCA Graduate</span>
-        <span class="tag">OWASP Practitioner</span><span class="tag">AI Security</span>
-        <span class="tag">Open to Remote</span><span class="tag">6+ Years XP</span>
+        <span class="tag">OWASP Practitioner</span><span class="tag">Prompt Engineer</span>
+        <span class="tag">AI Security</span><span class="tag">Open to Remote</span><span class="tag">7+ Years XP</span>
       </div>
     </div>
     <div class="contact-card">
@@ -186,14 +205,14 @@
 
 <section id="experience" class="reveal">
   <div class="section-label">// work history</div>
-  <h2 class="section-title">6+ Years.<br><span style="color:var(--muted);font-size:0.6em;font-weight:400">Click any role to expand full details ↓</span></h2>
+  <h2 class="section-title">7+ Years.<br><span style="color:var(--muted);font-size:0.6em;font-weight:400">Click any role to expand full details ↓</span></h2>
   <p class="section-desc">Full responsibilities, metrics, tech stack, and key projects for each role.</p>
   <div class="timeline">
 
     <div class="exp-item open">
       <div class="exp-toggle" onclick="toggleExp(this)">
         <div class="exp-toggle-left"><div class="exp-title">Senior Software Developer</div><div class="exp-company">Allied Aviation India Pvt. Ltd. · Mumbai</div></div>
-        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:0.4rem"><div class="exp-date">Dec 2025 — March 2026</div><div class="exp-arrow">▼</div></div>
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:0.4rem"><div class="exp-date">Dec 2025 — Mar 2026</div><div class="exp-arrow">▼</div></div>
       </div>
       <div class="exp-body">
         <div class="exp-summary">Aviation logistics platform — rebuilt backend architecture, hardened the entire security posture, and built real-time dashboards for flight and ground operations analytics.</div>
@@ -218,7 +237,7 @@
     <div class="exp-item">
       <div class="exp-toggle" onclick="toggleExp(this)">
         <div class="exp-toggle-left"><div class="exp-title">Full Stack Developer</div><div class="exp-company">NIELSENIQ India Pvt. Ltd. · Mumbai</div></div>
-        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:0.4rem"><div class="exp-date">Jun 2024 — Jun 2025</div><div class="exp-arrow">▼</div></div>
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:0.4rem"><div class="exp-date">Jun 2024 — Jul 2025</div><div class="exp-arrow">▼</div></div>
       </div>
       <div class="exp-body">
         <div class="exp-summary">Global retail analytics firm — rebuilt multi-service architecture, delivered real-time FMCG data dashboards, and hardened application security across all modules.</div>
@@ -242,7 +261,7 @@
     <div class="exp-item">
       <div class="exp-toggle" onclick="toggleExp(this)">
         <div class="exp-toggle-left"><div class="exp-title">Senior Laravel Developer</div><div class="exp-company">ONE HEALTH ASSIST · Mumbai</div></div>
-        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:0.4rem"><div class="exp-date">Apr 2024 — Jun 2024</div><div class="exp-arrow">▼</div></div>
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:0.4rem"><div class="exp-date">Apr 2024 — Jul 2025</div><div class="exp-arrow">▼</div></div>
       </div>
       <div class="exp-body">
         <div class="exp-summary">Healthtech startup — built a full telehealth platform from scratch: video consultation, appointment booking, doctor-patient management, and payment integration.</div>
@@ -263,7 +282,7 @@
     <div class="exp-item">
       <div class="exp-toggle" onclick="toggleExp(this)">
         <div class="exp-toggle-left"><div class="exp-title">PHP Developer</div><div class="exp-company">FOOZO FOODS AND SERVICES PVT. LTD. · Mumbai</div></div>
-        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:0.4rem"><div class="exp-date">Oct 2023 — Nov 2023</div><div class="exp-arrow">▼</div></div>
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:0.4rem"><div class="exp-date">Oct 2023 — Dec 2024</div><div class="exp-arrow">▼</div></div>
       </div>
       <div class="exp-body">
         <div class="exp-summary">Food delivery startup — engineered a full-stack Zomato-style platform with real-time order tracking, multi-vendor restaurant management, and payment processing.</div>
@@ -281,10 +300,33 @@
       </div>
     </div>
 
+    <!-- PROMPT ENGINEER ROLE — added from PDF resume -->
+    <div class="exp-item">
+      <div class="exp-toggle" onclick="toggleExp(this)">
+        <div class="exp-toggle-left"><div class="exp-title">Prompt Engineer &amp; AI Integration Specialist</div><div class="exp-company">HAN RIVER TECHNOLOGY · Remote (Global Clients)</div></div>
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:0.4rem"><div class="exp-date">Feb 2022 — Apr 2025</div><div class="exp-arrow">▼</div></div>
+      </div>
+      <div class="exp-body">
+        <div class="exp-summary">South Korean tech firm — designed and engineered production-grade LLM prompt systems, RAG pipelines, and AI security red-teaming for global enterprise clients including Samsung, Hanatour, and Nutrabit.</div>
+        <ul class="exp-bullets">
+          <li>Designed and engineered <strong>production-grade prompt systems</strong> integrating <strong>OpenAI GPT-4, Anthropic Claude API, and Google Gemini</strong> — enabling AI-powered workflows across Samsung, Hanatour, and Nutrabit portals</li>
+          <li>Built <strong>Retrieval-Augmented Generation (RAG) pipelines</strong> combining LLM APIs with vector databases to power intelligent document search and contextual Q&amp;A for enterprise admin platforms</li>
+          <li>Conducted <strong>AI security red-teaming</strong>: identified and mitigated prompt injection vulnerabilities, jailbreak vectors, and data exfiltration risks across LLM-integrated client systems</li>
+          <li>Engineered <strong>chain-of-thought and few-shot prompt templates</strong> achieving <span class="exp-metric">40%+ improvement in AI output accuracy</span> and consistency for client-facing automation workflows</li>
+          <li>Designed <strong>structured output prompts</strong> (JSON-mode, function calling) to reliably extract and transform data from unstructured inputs into downstream enterprise APIs</li>
+          <li>Automated enterprise workflows (inventory sync, booking confirmations, agent commission reports) using <strong>LLM-driven orchestration with Node.js and Python backends</strong></li>
+          <li>Implemented <strong>prompt versioning, A/B testing pipelines, and evaluation frameworks</strong> to continuously optimize LLM performance in production</li>
+          <li>Collaborated with global client teams to translate business requirements into effective AI-powered features — <span class="exp-metric">reducing manual processing time by 60%</span> across key workflows</li>
+        </ul>
+        <div class="exp-projects"><h4>🤖 AI Capabilities Delivered</h4><div class="project-pills"><span class="project-pill">RAG Pipelines</span><span class="project-pill">Chain-of-Thought Prompting</span><span class="project-pill">Prompt Injection Defense</span><span class="project-pill">JSON-mode Outputs</span><span class="project-pill">LLM Orchestration</span><span class="project-pill">A/B Eval Frameworks</span></div></div>
+        <div class="exp-tags"><span class="exp-tag">OpenAI GPT-4</span><span class="exp-tag">Claude API</span><span class="exp-tag">Gemini</span><span class="exp-tag">RAG</span><span class="exp-tag">Prompt Engineering</span><span class="exp-tag">Node.js</span><span class="exp-tag">Python</span><span class="exp-tag">Vector DB</span><span class="exp-tag">AI Red-Teaming</span></div>
+      </div>
+    </div>
+
     <div class="exp-item">
       <div class="exp-toggle" onclick="toggleExp(this)">
         <div class="exp-toggle-left"><div class="exp-title">Associate Software Developer</div><div class="exp-company">HAN RIVER TECHNOLOGY · Remote (Global Clients)</div></div>
-        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:0.4rem"><div class="exp-date">Feb 2022 — Oct 2023</div><div class="exp-arrow">▼</div></div>
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:0.4rem"><div class="exp-date">Feb 2022 — Apr 2025</div><div class="exp-arrow">▼</div></div>
       </div>
       <div class="exp-body">
         <div class="exp-summary">South Korean tech firm — developed 10+ enterprise admin panels and management systems for global clients including Samsung, Hanatour, Nutrabit, Centropolis, and GS Community.</div>
@@ -295,9 +337,7 @@
           <li>Built <strong>Hanatour travel admin panel</strong> — tour package management, booking workflows, and agent commission tracking</li>
           <li>Developed <strong>Nutrabit health product portal</strong> — subscription management, order tracking, and customer data dashboards</li>
           <li>Engineered <strong>Centropolis and GS Community</strong> enterprise management systems with complex permission hierarchies and Vuex state</li>
-          <li>Implemented <strong>complex role-based state management with Vuex</strong> to streamline administrative workflows across multi-role systems</li>
           <li>Designed <strong>seamless API integrations</strong> for all platforms ensuring real-time data updates and cross-service communication</li>
-          <li>Enhanced <strong>UI responsiveness and interactivity</strong> using Vuetify Material Design for professional enterprise UX standards</li>
         </ul>
         <div class="exp-projects"><h4>🌏 Client Projects</h4><div class="project-pills"><span class="project-pill">Samsung Portal</span><span class="project-pill">Hanatour Travel</span><span class="project-pill">Nutrabit Health</span><span class="project-pill">Centropolis</span><span class="project-pill">GS Community</span><span class="project-pill">10+ Panels</span></div></div>
         <div class="exp-tags"><span class="exp-tag">Vue.js</span><span class="exp-tag">Vuex</span><span class="exp-tag">Vuetify</span><span class="exp-tag">JavaScript</span><span class="exp-tag">REST APIs</span><span class="exp-tag">Laravel</span><span class="exp-tag">MySQL</span></div>
@@ -307,7 +347,7 @@
     <div class="exp-item">
       <div class="exp-toggle" onclick="toggleExp(this)">
         <div class="exp-toggle-left"><div class="exp-title">Senior Developer</div><div class="exp-company">M AND C PROPERTY DEVELOPMENT PVT. LTD. · Mumbai</div></div>
-        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:0.4rem"><div class="exp-date">Oct 2021 — Jan 2022</div><div class="exp-arrow">▼</div></div>
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:0.4rem"><div class="exp-date">Oct 2021 — Feb 2023</div><div class="exp-arrow">▼</div></div>
       </div>
       <div class="exp-body">
         <div class="exp-summary">Real estate company — led end-to-end development of multiple client-facing property websites with custom CMS, dynamic listing systems, and lead management.</div>
@@ -317,7 +357,6 @@
           <li>Implemented <strong>dynamic property filters</strong> — bedrooms, price range, locality, amenities — with fast database-backed search</li>
           <li>Designed <strong>image gallery and virtual tour modules</strong> with lazy loading and CDN optimization for fast media delivery</li>
           <li>Built <strong>inquiry and lead capture forms</strong> with email routing to sales teams and CRM-ready data exports</li>
-          <li>Collaborated with <strong>design and marketing teams</strong> to implement pixel-perfect layouts from Figma/PSD designs</li>
           <li>Managed <strong>DigitalOcean hosting, SSL, deployments, and ongoing maintenance</strong> — high uptime and performance</li>
         </ul>
         <div class="exp-tags"><span class="exp-tag">Laravel</span><span class="exp-tag">PHP</span><span class="exp-tag">MySQL</span><span class="exp-tag">CMS</span><span class="exp-tag">SEO</span><span class="exp-tag">Bootstrap</span><span class="exp-tag">jQuery</span><span class="exp-tag">DigitalOcean</span></div>
@@ -327,7 +366,7 @@
     <div class="exp-item">
       <div class="exp-toggle" onclick="toggleExp(this)">
         <div class="exp-toggle-left"><div class="exp-title">Senior Developer</div><div class="exp-company">KLANTECH BUSINESS PVT. LTD. · Pune</div></div>
-        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:0.4rem"><div class="exp-date">Jul 2021 — Oct 2021</div><div class="exp-arrow">▼</div></div>
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:0.4rem"><div class="exp-date">Jul 2021 — Nov 2022</div><div class="exp-arrow">▼</div></div>
       </div>
       <div class="exp-body">
         <div class="exp-summary">B2B tech firm — built scalable e-commerce platforms, a Learning Management System, and a niche pet marketplace, plus mentored junior developers on best practices.</div>
@@ -348,10 +387,10 @@
     <div class="exp-item">
       <div class="exp-toggle" onclick="toggleExp(this)">
         <div class="exp-toggle-left"><div class="exp-title">Web Developer</div><div class="exp-company">PUNON TECHNOLOGIES PVT. LTD. · Mumbai</div></div>
-        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:0.4rem"><div class="exp-date">Aug 2019 — Jun 2021</div><div class="exp-arrow">▼</div></div>
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:0.4rem"><div class="exp-date">Aug 2019 — Jul 2022</div><div class="exp-arrow">▼</div></div>
       </div>
       <div class="exp-body">
-        <div class="exp-summary">Digital agency — 2-year foundational role building custom web apps, real-time systems, Node.js microservices, and innovative video calling with Chroma key effects from scratch.</div>
+        <div class="exp-summary">Digital agency — 3-year foundational role building custom web apps, real-time systems, Node.js microservices, and innovative video calling with Chroma key effects from scratch.</div>
         <ul class="exp-bullets">
           <li>Managed and optimized <strong>DigitalOcean servers</strong> — deployments, automated backups, and security hardening; <span class="exp-metric">maintained 99.9% uptime</span></li>
           <li>Built <strong>real-time Node.js APIs (Express + Socket.IO)</strong> for live chat systems and push notification delivery</li>
@@ -361,7 +400,6 @@
           <li>Built <strong>Sankalp Infosys</strong> — full corporate platform with service catalog, inquiry system, and admin CMS</li>
           <li>Built <strong>EduTech Solutions</strong> — educational portal with course listings, student dashboard, and enrollment management</li>
           <li>Built <strong>Rowty</strong> — from scratch with admin dashboard, user portal, and all third-party API integrations</li>
-          <li>Ensured <strong>responsive, cross-browser compatible UI/UX</strong> using Bootstrap, jQuery, and custom CSS</li>
         </ul>
         <div class="exp-projects"><h4>🔧 Key Projects</h4><div class="project-pills"><span class="project-pill">Sankalp Infosys</span><span class="project-pill">EduTech Solutions</span><span class="project-pill">Rowty App</span><span class="project-pill">Video Call + Chroma Key</span><span class="project-pill">Live Chat System</span></div></div>
         <div class="exp-tags"><span class="exp-tag">Node.js</span><span class="exp-tag">Express.js</span><span class="exp-tag">Socket.IO</span><span class="exp-tag">Laravel</span><span class="exp-tag">PHP</span><span class="exp-tag">MySQL</span><span class="exp-tag">DigitalOcean</span><span class="exp-tag">WebRTC</span></div>
@@ -375,9 +413,27 @@
 
 <section id="skills" class="reveal">
   <div class="section-label">// technical skills</div>
-  <h2 class="section-title">Full Stack &amp;<br>Security Arsenal</h2>
-  <p class="section-desc">Complete toolkit — security, development, databases, DevOps, cloud, and AI-assisted workflows. Highlighted = core strengths.</p>
+  <h2 class="section-title">Full Stack, AI &amp;<br>Security Arsenal</h2>
+  <p class="section-desc">Complete toolkit — security, development, prompt engineering, databases, DevOps, cloud, and AI-assisted workflows. Highlighted = core strengths.</p>
   <div class="skills-grid">
+    <div class="skill-card">
+      <div class="skill-card-icon">🧠</div>
+      <h3>Prompt Engineering</h3>
+      <ul class="skill-list">
+        <li class="hi">LLM API Integration (GPT-4, Claude, Gemini)</li>
+        <li class="hi">Chain-of-Thought Prompting</li>
+        <li class="hi">RAG (Retrieval-Augmented Generation)</li>
+        <li>Few-Shot &amp; Zero-Shot Prompting</li>
+        <li>AI Security Red-Teaming</li>
+        <li>Prompt Injection Defense</li>
+        <li>System Prompt Design</li>
+        <li>AI Workflow Automation</li>
+        <li>Structured Output Engineering</li>
+        <li>JSON-mode / Function Calling</li>
+        <li>PentestGPT</li>
+        <li>Microsoft Security Copilot</li>
+      </ul>
+    </div>
     <div class="skill-card">
       <div class="skill-card-icon">🔐</div>
       <h3>Cybersecurity</h3>
@@ -386,9 +442,9 @@
         <li>Vulnerability Assessment (VA)</li><li>Application Security (AppSec)</li>
         <li>Secure SDLC</li><li>Threat Modeling</li>
         <li>API Security Testing</li><li>Auth &amp; RBAC Security</li>
-        <li>Secure Coding Practices</li><li>Input Validation / Output Encoding</li>
-        <li>XSS / CSRF / SQLi Prevention</li><li>HTTP Security Headers</li>
-        <li>CSP / HSTS / CORS Config</li><li>Session Management Security</li>
+        <li>Secure Coding Practices</li><li>XSS / CSRF / SQLi Prevention</li>
+        <li>HTTP Security Headers</li><li>CSP / HSTS / CORS Config</li>
+        <li>Session Management Security</li>
       </ul>
     </div>
     <div class="skill-card">
@@ -401,7 +457,7 @@
         <li>Nikto</li><li>Subfinder / Amass</li>
         <li>Dirsearch / Gobuster</li><li>Metasploit (Basic)</li>
         <li>Linux / Kali Linux</li><li>TryHackMe Labs</li>
-        <li>FFUF / WFuzz</li><li>OWASP Juice Shop (Practice)</li>
+        <li>FFUF / WFuzz</li>
       </ul>
     </div>
     <div class="skill-card">
@@ -413,8 +469,8 @@
         <li>Angular</li><li>JavaScript ES6+</li>
         <li>TypeScript (Basic)</li><li>HTML5 / CSS3</li>
         <li>Bootstrap 4 &amp; 5</li><li>Tailwind CSS</li>
-        <li>jQuery / AJAX</li><li>Fetch API / Axios</li>
-        <li>Responsive / Mobile Design</li><li>WebRTC (UI Integration)</li>
+        <li>jQuery / AJAX</li><li>Responsive / Mobile Design</li>
+        <li>WebRTC (UI Integration)</li>
       </ul>
     </div>
     <div class="skill-card">
@@ -424,23 +480,10 @@
         <li class="hi">Node.js</li><li class="hi">Express.js</li>
         <li class="hi">Laravel (Expert)</li><li>CodeIgniter</li>
         <li>PHP (Advanced)</li><li>Python (Basic)</li>
-        <li>C / C++ (Basic)</li><li>RESTful API Design</li>
-        <li>WebSockets</li><li>Socket.IO</li>
-        <li>WebRTC Integration</li><li>JWT / OAuth 2.0</li>
-        <li>Microservices Architecture</li><li>Background Jobs / Queues</li>
-      </ul>
-    </div>
-    <div class="skill-card">
-      <div class="skill-card-icon">🗄️</div>
-      <h3>Databases &amp; DevOps</h3>
-      <ul class="skill-list">
-        <li class="hi">PostgreSQL</li><li class="hi">MySQL</li>
-        <li class="hi">Redis (Caching &amp; Sessions)</li><li>Eloquent ORM</li>
-        <li>Query Optimization</li><li>Database Schema Design</li>
-        <li>Indexing &amp; Performance Tuning</li><li>Git / GitHub / GitLab</li>
-        <li>Linux Server Admin</li><li>DigitalOcean Droplets</li>
-        <li>AWS S3</li><li>Docker (Basics)</li>
-        <li>Nginx / Apache</li><li>CI/CD (Basic)</li>
+        <li>Golang (Basic)</li><li>RESTful API Design</li>
+        <li>WebSockets / Socket.IO</li><li>WebRTC Integration</li>
+        <li>JWT / OAuth 2.0</li><li>Microservices Architecture</li>
+        <li>Background Jobs / Queues</li>
       </ul>
     </div>
     <div class="skill-card">
@@ -450,11 +493,10 @@
         <li class="hi">Google Vertex AI</li><li class="hi">Azure OpenAI</li>
         <li class="hi">GitHub Copilot</li><li>Amazon SageMaker</li>
         <li>Amazon Bedrock</li><li>Azure AI Studio</li>
-        <li>Google AI Studio</li><li>OpenAI (GPT APIs)</li>
-        <li>Anthropic (Claude API)</li><li>Cohere</li>
-        <li>Hugging Face</li><li>Cursor IDE</li>
-        <li>Tabnine</li><li>PentestGPT</li>
-        <li>MS Security Copilot</li><li>ChatGPT for SecOps</li>
+        <li>OpenAI (GPT APIs)</li><li>Anthropic (Claude API)</li>
+        <li>Google AI Studio</li><li>Cohere / Hugging Face</li>
+        <li>AWS S3 / DigitalOcean</li><li>Docker (Basics)</li>
+        <li>Cursor IDE / Tabnine</li>
       </ul>
     </div>
   </div>
@@ -473,36 +515,91 @@
 
 <div class="divider"></div>
 
+<!-- ══════════════════════════════════════════════
+     CERTIFICATIONS — fully updated from PDF resume
+     ══════════════════════════════════════════════ -->
 <section id="certs" class="reveal">
   <div class="section-label">// certifications</div>
-  <h2 class="section-title">17+ Certifications &amp; Counting</h2>
-  <p class="section-desc">Continuously upskilling across cybersecurity, cloud, AI, and web development.</p>
-  <div class="certs-grid">
-    <div class="cert-card"><div class="cert-icon">🔐</div><div><div class="cert-name">CISSP: Security Assessment &amp; Testing</div><div class="cert-issuer">Simplilearn · Jul 2025</div></div></div>
-    <div class="cert-card"><div class="cert-icon">🔐</div><div><div class="cert-name">CISSP: Security Operations</div><div class="cert-issuer">Simplilearn · Jul 2025</div></div></div>
-    <div class="cert-card"><div class="cert-icon">🔐</div><div><div class="cert-name">Ethical Hacking 101</div><div class="cert-issuer">Simplilearn · Jul 2025</div></div></div>
-    <div class="cert-card"><div class="cert-icon">🔐</div><div><div class="cert-name">Introduction to Cyber Security</div><div class="cert-issuer">Simplilearn · Jul 2025</div></div></div>
-    <div class="cert-card"><div class="cert-icon">🔐</div><div><div class="cert-name">Introduction to Cybercrime</div><div class="cert-issuer">Simplilearn · Jul 2025</div></div></div>
-    <div class="cert-card"><div class="cert-icon">🏅</div><div><div class="cert-name">Diploma in CISSP 2024</div><div class="cert-issuer">Alison · Jul 2025</div></div></div>
-    <div class="cert-card"><div class="cert-icon">🌐</div><div><div class="cert-name">CCNA 200-301 Network Fundamentals</div><div class="cert-issuer">Simplilearn · Jul 2025</div></div></div>
-    <div class="cert-card"><div class="cert-icon">☁️</div><div><div class="cert-name">Azure 303 &amp; 304 for Beginners</div><div class="cert-issuer">Simplilearn · Aug 2025</div></div></div>
-    <div class="cert-card"><div class="cert-icon">☁️</div><div><div class="cert-name">AWS S3 Tutorial for Beginners</div><div class="cert-issuer">Simplilearn · Jul 2025</div></div></div>
-    <div class="cert-card"><div class="cert-icon">🤖</div><div><div class="cert-name">ChatGPT for Python</div><div class="cert-issuer">Simplilearn · Aug 2025</div></div></div>
-    <div class="cert-card"><div class="cert-icon">📊</div><div><div class="cert-name">Power BI for Beginners</div><div class="cert-issuer">Simplilearn · Jul 2025</div></div></div>
-    <div class="cert-card"><div class="cert-icon">🐍</div><div><div class="cert-name">Python for Beginners &amp; Advanced Python</div><div class="cert-issuer">Simplilearn · Jul–Aug 2025</div></div></div>
-    <div class="cert-card"><div class="cert-icon">⚙️</div><div><div class="cert-name">DevOps 101</div><div class="cert-issuer">Simplilearn · Jul 2025</div></div></div>
-    <div class="cert-card"><div class="cert-icon">🔧</div><div><div class="cert-name">Salesforce Platform App Builder</div><div class="cert-issuer">Simplilearn · Jul 2025</div></div></div>
-    <div class="cert-card"><div class="cert-icon">🏆</div><div><div class="cert-name">Laravel Certification</div><div class="cert-issuer">TryCatch Classes</div></div></div>
-    <div class="cert-card"><div class="cert-icon">🏆</div><div><div class="cert-name">Cybersecurity Course</div><div class="cert-issuer">TryCatch Classes</div></div></div>
-    <div class="cert-card"><div class="cert-icon">🎯</div><div><div class="cert-name">TryHackMe Practical Exercises</div><div class="cert-issuer">Hands-on Cybersecurity Labs</div></div></div>
+  <h2 class="section-title">40+ Certifications &amp; Counting</h2>
+  <p class="section-desc">Continuously upskilling across AI, prompt engineering, cybersecurity, cloud, and web development.</p>
+
+  <!-- GROUP 1: Anthropic / Claude -->
+  <div class="cert-section-group">
+    <div class="cert-group-label">Anthropic — Claude Academy</div>
+    <div class="certs-grid">
+      <div class="cert-card featured"><div class="cert-icon ai">🤖</div><div><div class="cert-name">Claude 101</div><div class="cert-issuer">Anthropic · May 2026</div><div class="cert-id">No: biv7n8srn39f</div></div></div>
+      <div class="cert-card featured"><div class="cert-icon ai">🤖</div><div><div class="cert-name">Claude Code in Action</div><div class="cert-issuer">Anthropic · May 2026</div><div class="cert-id">No: oo2r9cuo9b77</div></div></div>
+      <div class="cert-card featured"><div class="cert-icon ai">🤖</div><div><div class="cert-name">Claude with the Anthropic API</div><div class="cert-issuer">Anthropic · May 2026</div><div class="cert-id">No: znn7kqyx3632</div></div></div>
+    </div>
   </div>
+
+  <!-- GROUP 2: AI & Generative AI -->
+  <div class="cert-section-group">
+    <div class="cert-group-label">AI &amp; Generative AI</div>
+    <div class="certs-grid">
+      <div class="cert-card"><div class="cert-icon ai">🧠</div><div><div class="cert-name">AI in the Real World</div><div class="cert-issuer">IBM SkillsBuild · May 2026</div></div></div>
+      <div class="cert-card"><div class="cert-icon ai">🧠</div><div><div class="cert-name">AI-Powered Assessment Platform</div><div class="cert-issuer">HackerBeen / TechBeen IT Solutions · Oct 2025</div><div class="cert-id">ID: 12871973130312533161</div></div></div>
+      <div class="cert-card"><div class="cert-icon ai">🧠</div><div><div class="cert-name">YUVA AI for All</div><div class="cert-issuer">Simplilearn · May 2026</div><div class="cert-id">Code: 10225856</div></div></div>
+      <div class="cert-card"><div class="cert-icon ai">🧠</div><div><div class="cert-name">Generative AI Fundamentals</div><div class="cert-issuer">Simplilearn · May 2026</div><div class="cert-id">Code: 10225170</div></div></div>
+      <div class="cert-card"><div class="cert-icon ai">🧠</div><div><div class="cert-name">Generative AI for Everyone</div><div class="cert-issuer">Simplilearn · May 2026</div><div class="cert-id">Code: 10220845</div></div></div>
+      <div class="cert-card"><div class="cert-icon ai">🧠</div><div><div class="cert-name">ChatGPT for Cybersecurity</div><div class="cert-issuer">Simplilearn · May 2026</div><div class="cert-id">Code: 10226117</div></div></div>
+      <div class="cert-card"><div class="cert-icon ai">🧠</div><div><div class="cert-name">ChatGPT for Python</div><div class="cert-issuer">Simplilearn · Aug 2025</div><div class="cert-id">Code: 8753707</div></div></div>
+      <div class="cert-card"><div class="cert-icon ai">🧠</div><div><div class="cert-name">Prompt Engineering for ChatGPT</div><div class="cert-issuer">Coursera (via Simplilearn)</div></div></div>
+    </div>
+  </div>
+
+  <!-- GROUP 3: Cybersecurity -->
+  <div class="cert-section-group">
+    <div class="cert-group-label">Cybersecurity</div>
+    <div class="certs-grid">
+      <div class="cert-card"><div class="cert-icon">🔐</div><div><div class="cert-name">CISSP: Security Assessment &amp; Testing</div><div class="cert-issuer">Simplilearn · Jul 2025</div><div class="cert-id">Code: 8639992</div></div></div>
+      <div class="cert-card"><div class="cert-icon">🔐</div><div><div class="cert-name">CISSP: Security Operations</div><div class="cert-issuer">Simplilearn · Jul 2025</div><div class="cert-id">Code: 8639992</div></div></div>
+      <div class="cert-card"><div class="cert-icon">🏅</div><div><div class="cert-name">Diploma in CISSP 2024</div><div class="cert-issuer">Alison · CPD Certified</div><div class="cert-id">Verify: 7468-58237823</div></div></div>
+      <div class="cert-card"><div class="cert-icon">🔐</div><div><div class="cert-name">Ethical Hacking 101</div><div class="cert-issuer">Simplilearn · Jul &amp; Aug 2025</div><div class="cert-id">Code: 8639257 / 8750218</div></div></div>
+      <div class="cert-card"><div class="cert-icon">🔐</div><div><div class="cert-name">Introduction to Cyber Security</div><div class="cert-issuer">Simplilearn · Jul 2025</div><div class="cert-id">Code: 8635168</div></div></div>
+      <div class="cert-card"><div class="cert-icon">🔐</div><div><div class="cert-name">Introduction to Cybercrime</div><div class="cert-issuer">Simplilearn · Jul 2025</div><div class="cert-id">Code: 8645746</div></div></div>
+      <div class="cert-card"><div class="cert-icon">🌐</div><div><div class="cert-name">CCNA 200-301 Network Fundamentals</div><div class="cert-issuer">Simplilearn · Jul 2025</div><div class="cert-id">Code: 8634528</div></div></div>
+      <div class="cert-card"><div class="cert-icon">🔐</div><div><div class="cert-name">Cybersecurity Course</div><div class="cert-issuer">TryCatch Classes</div></div></div>
+      <div class="cert-card"><div class="cert-icon">🎯</div><div><div class="cert-name">TryHackMe Practical Exercises</div><div class="cert-issuer">Hands-on Cybersecurity Labs</div></div></div>
+    </div>
+  </div>
+
+  <!-- GROUP 4: Cloud & Azure -->
+  <div class="cert-section-group">
+    <div class="cert-group-label">Cloud &amp; Microsoft Azure</div>
+    <div class="certs-grid">
+      <div class="cert-card"><div class="cert-icon cloud">☁️</div><div><div class="cert-name">Azure Fundamentals</div><div class="cert-issuer">Simplilearn · Aug 2025 · Powered by Microsoft</div><div class="cert-id">Code: 8785017</div></div></div>
+      <div class="cert-card"><div class="cert-icon cloud">☁️</div><div><div class="cert-name">Azure 303 for Beginners</div><div class="cert-issuer">Simplilearn · Aug 2025</div><div class="cert-id">Code: 8749249</div></div></div>
+      <div class="cert-card"><div class="cert-icon cloud">☁️</div><div><div class="cert-name">Azure 304 for Beginners</div><div class="cert-issuer">Simplilearn · Jul 2025</div><div class="cert-id">Code: 8702909</div></div></div>
+      <div class="cert-card"><div class="cert-icon cloud">☁️</div><div><div class="cert-name">Azure OpenAI Integration</div><div class="cert-issuer">Simplilearn</div></div></div>
+      <div class="cert-card"><div class="cert-icon cloud">☁️</div><div><div class="cert-name">AWS S3 Tutorial for Beginners</div><div class="cert-issuer">Simplilearn · Jul 2025</div><div class="cert-id">Code: 8697438</div></div></div>
+      <div class="cert-card"><div class="cert-icon cloud">☁️</div><div><div class="cert-name">Getting Started with AWS</div><div class="cert-issuer">Simplilearn · Aug 2025</div><div class="cert-id">Code: 8834984</div></div></div>
+      <div class="cert-card"><div class="cert-icon cloud">📊</div><div><div class="cert-name">Power BI for Beginners</div><div class="cert-issuer">Simplilearn · Jul 2025 · Powered by Microsoft</div><div class="cert-id">Code: 8677429</div></div></div>
+      <div class="cert-card"><div class="cert-icon cloud">🔧</div><div><div class="cert-name">Salesforce Platform App Builder</div><div class="cert-issuer">Simplilearn · Jul 2025</div><div class="cert-id">Code: 8645747</div></div></div>
+    </div>
+  </div>
+
+  <!-- GROUP 5: Programming & DevOps -->
+  <div class="cert-section-group">
+    <div class="cert-group-label">Programming &amp; DevOps</div>
+    <div class="certs-grid">
+      <div class="cert-card"><div class="cert-icon dev">🐍</div><div><div class="cert-name">Python for Beginners</div><div class="cert-issuer">Simplilearn · Jul 2025</div><div class="cert-id">Code: 8707821</div></div></div>
+      <div class="cert-card"><div class="cert-icon dev">🐍</div><div><div class="cert-name">Advanced Python</div><div class="cert-issuer">Simplilearn · Aug 2025</div><div class="cert-id">Code: 8743710</div></div></div>
+      <div class="cert-card"><div class="cert-icon dev">🐹</div><div><div class="cert-name">Introduction to Golang</div><div class="cert-issuer">Simplilearn · Aug 2025</div><div class="cert-id">Code: 8806309</div></div></div>
+      <div class="cert-card"><div class="cert-icon dev">🐹</div><div><div class="cert-name">Go-Lang Basics</div><div class="cert-issuer">Simplilearn · Aug 2025</div><div class="cert-id">Code: 8813358</div></div></div>
+      <div class="cert-card"><div class="cert-icon dev">⚙️</div><div><div class="cert-name">Introduction to DevOps Tools</div><div class="cert-issuer">Simplilearn · Aug 2025</div><div class="cert-id">Code: 8827067</div></div></div>
+      <div class="cert-card"><div class="cert-icon dev">⚙️</div><div><div class="cert-name">DevOps 101: What is DevOps?</div><div class="cert-issuer">Simplilearn · Jul 2025</div><div class="cert-id">Code: 8709224</div></div></div>
+      <div class="cert-card"><div class="cert-icon dev">🏆</div><div><div class="cert-name">Laravel Certification</div><div class="cert-issuer">TryCatch Classes</div></div></div>
+    </div>
+  </div>
+
 </section>
 
 <div class="divider"></div>
 
 <footer>
   <div class="footer-logo">Phenil Chauhan</div>
-  <div style="color:var(--muted);font-size:0.8rem;text-align:center;">Full Stack &amp; AppSec Engineer · Mumbai, India</div>
+  <div style="color:var(--muted);font-size:0.8rem;text-align:center;">Full Stack · Prompt Engineer · AppSec · Mumbai, India</div>
   <div class="footer-links">
     <a href="mailto:chauhanphenil@gmail.com">Email</a>
     <a href="https://www.linkedin.com/in/phenil-chauhan-3b400617b/" target="_blank">LinkedIn</a>
